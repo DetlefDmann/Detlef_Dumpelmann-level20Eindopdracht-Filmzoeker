@@ -2,14 +2,45 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=git, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./styles/style.css" />
-    <script src="./index.js" defer></script>
+    <script type="module" src="./index.js" defer></script>
+    <script type="module" src="./moviesDatabase.js" defer></script>
   </head>
   <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
+    <header>
+      <h1>Welkom bij mijn filmzoeker</h1>
+    </header>
+    <nav>
+      <div class="filter__buttons">
+        <label for="nieuwste">
+          <input type="radio" name="select" id="nieuwste" value="nieuwste" />
+          Nieuwste Films
+        </label>
+        <label for="avengers">
+          <input type="radio" name="select" id="avengers" value="avengers" />
+          Avengers
+        </label>
+        <label for="x-men">
+          <input type="radio" name="select" id="x-men" value="x-men" />
+          X-Men
+        </label>
+        <label for="princess">
+          <input type="radio" name="select" id="princess" value="princess" />
+          Princess
+        </label>
+        <label for="batman">
+          <input type="radio" name="select" id="batman" value="batman" />
+          Batman
+        </label>
+      </div>
+    </nav>
+    <main>
+      <div class="movie__container">
+        <ul id="movie__field"></ul>
+      </div>
+    </main>
+    <footer>copyright Detlef Dumpelmann 2021</footer>
   </body>
 </html>
