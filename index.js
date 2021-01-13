@@ -14,7 +14,7 @@ const eventHandler = (event) => {
   } else {
     console.log(event.target.value);
     selectedMovies = movies.filter((movie) => {
-      if (movie.Title.toLowerCase().includes(event.target.value)) {
+      if (movie.Title.toLowerCase().includes(event.target.value.toLowerCase())) {
         return movie;
       }
     });
