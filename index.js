@@ -33,7 +33,9 @@ document.getElementById("textsearch").addEventListener("input", eventHandler);
 // nu een component maken die de inhoud van het array omzet in elementen die clickable zijn
 
 const moviePlacer = () => {
+  movieClearer();
   selectedMovies.map((movie) => {
+    let lister = document.createElement("li");
     let linker = document.createElement("a");
     linker.setAttribute("href", `https://www.imdb.com/title/${movie.imdbID}`);
     linker.setAttribute("class", "movie__link");
@@ -43,6 +45,16 @@ const moviePlacer = () => {
     temp.setAttribute("class", "movie__poster");
     temp.setAttribute("alt", `Poster for ${movie.Title}`);
     linker.appendChild(temp);
-    document.getElementById("movie__field").appendChild(linker);
+    document.getElementById("movie__field").appendChild(lister).appendChild(linker);
   });
+};
+
+//er is nog wel een functie nodig die de vorige selectie weghaald voordat de nieuwe geplaatst word.
+
+const movieClearer = () => {
+  let parent = document.getElementById("movie__field");
+  let count = parent.childNodes.length;
+  for (let i = 0; i < count; i++) {
+    parent.removeChild(parent.childNodes[0]);
+  }
 };

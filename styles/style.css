@@ -56,4 +56,13 @@ footer {
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
+
+#movie__field {
+  list-style: none;
+}
+#movie__field li {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
 /*# sourceMappingURL=style.css.map */
