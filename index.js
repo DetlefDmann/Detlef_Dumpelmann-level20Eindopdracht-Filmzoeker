@@ -26,7 +26,13 @@ const addEventListeners = () => {
   let textInput = buttons.filter((i) => i.type == "text");
   buttons.map((b) => b.addEventListener("click", eventHandler));
   textInput.map((t) => t.addEventListener("input", eventHandler));
+  textInput.map((t) => t.addEventListener("click", deselector));
 };
+
+const deselector = () =>
+  Array.from(document.getElementsByName("select"))
+    .filter((i) => i.type == "radio")
+    .map((r) => (r.checked = false));
 
 addEventListeners();
 
