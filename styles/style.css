@@ -3,7 +3,7 @@ body {
   padding: 0;
   display: grid;
   height: 100vh;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Courier New", monospace, Arial, sans-serif;
   font-size: 14px;
   grid-template-rows: 10vh 15vh 1fr 10vh;
   grid-template-columns: 1fr;
@@ -11,6 +11,8 @@ body {
 }
 
 header {
+  font-family: "Amatic SC", cursive;
+  font-weight: 500;
   grid-area: header;
   background-color: #121212;
   color: #f5c518;
@@ -60,6 +62,8 @@ footer {
 .filter__buttons {
   padding-top: 1em;
   padding-right: 1em;
+  font-size: 20px;
+  font-weight: bold;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -108,15 +112,25 @@ footer {
   margin: auto;
 }
 
+.movie__poster {
+  width: 300px;
+  height: 450px;
+}
+
 @media (min-width: 768px) {
   body {
     margin: 0;
     padding: 0;
     display: grid;
     height: 100vh;
+    font-size: 24px;
     grid-template-rows: 10vh 5vh 1fr 10vh;
     grid-template-columns: 1fr;
     grid-template-areas: "header" "nav" "main" "footer";
+  }
+
+  header {
+    font-size: 24px;
   }
 
   .filter__buttons {
