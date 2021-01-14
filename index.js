@@ -12,23 +12,23 @@ const eventHandler = (event) => {
       }
     });
   } else {
-    console.log(event.target.value);
     selectedMovies = movies.filter((movie) => {
       if (movie.Title.toLowerCase().includes(event.target.value.toLowerCase())) {
         return movie;
       }
     });
   }
-  console.log(selectedMovies);
   moviePlacer();
 };
 
-document.getElementById("nieuwste").addEventListener("click", eventHandler);
-document.getElementById("avengers").addEventListener("click", eventHandler);
-document.getElementById("x-men").addEventListener("click", eventHandler);
-document.getElementById("princess").addEventListener("click", eventHandler);
-document.getElementById("batman").addEventListener("click", eventHandler);
-document.getElementById("textsearch").addEventListener("input", eventHandler);
+const addEventListeners = () => {
+  let buttons = Array.from(document.getElementsByName("select"));
+  let textInput = buttons.filter((i) => i.type == "text");
+  buttons.map((b) => b.addEventListener("click", eventHandler));
+  textInput.map((t) => t.addEventListener("input", eventHandler));
+};
+
+addEventListeners();
 
 // nu een component maken die de inhoud van het array omzet in elementen die clickable zijn
 
