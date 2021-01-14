@@ -58,3 +58,8 @@ const movieClearer = () => {
     parent.removeChild(parent.childNodes[0]);
   }
 };
+
+// initiele status : voeg alle films toe (ongefilterd)
+
+selectedMovies = movies;
+moviePlacer();
