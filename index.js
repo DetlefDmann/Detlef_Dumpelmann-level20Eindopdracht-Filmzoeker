@@ -22,8 +22,8 @@ const filterHandler = (event) => {
 };
 
 const addEventListeners = () => {
-  let inputElements = Array.from(document.getElementsByName("select"));
-  let textInputs = inputElements.filter((i) => i.type == "text");
+  const inputElements = Array.from(document.getElementsByName("select"));
+  const textInputs = inputElements.filter((i) => i.type == "text");
   inputElements.map((b) => b.addEventListener("click", filterHandler));
   textInputs.map((t) => t.addEventListener("input", filterHandler));
   textInputs.map((t) => t.addEventListener("click", uncheckRadioButtons));
@@ -41,25 +41,25 @@ addEventListeners();
 const moviePlacer = () => {
   movieClearer();
   selectedMovies.map((movie) => {
-    let movielist = document.createElement("li");
-    let movielink = document.createElement("a");
+    const movielistItem = document.createElement("li");
+    const movielink = document.createElement("a");
     movielink.setAttribute("href", `https://www.imdb.com/title/${movie.imdbID}`);
     movielink.setAttribute("class", "movie__link");
-    let poster = document.createElement("img");
+    const poster = document.createElement("img");
     poster.setAttribute("src", movie.Poster);
     poster.setAttribute("id", movie.imdbID);
     poster.setAttribute("class", "movie__poster");
     poster.setAttribute("alt", `Poster for ${movie.Title}`);
     movielink.appendChild(poster);
-    document.getElementById("movie__field").appendChild(movielist).appendChild(movielink);
+    document.getElementById("movie__field").appendChild(movielistItem).appendChild(movielink);
   });
 };
 
 //er is nog wel een functie nodig die de vorige selectie weghaald voordat de nieuwe geplaatst word.
 
 const movieClearer = () => {
-  let parent = document.getElementById("movie__field");
-  let count = parent.childNodes.length;
+  const parent = document.getElementById("movie__field");
+  const count = parent.childNodes.length;
   for (let i = 0; i < count; i++) {
     parent.removeChild(parent.childNodes[0]);
   }
