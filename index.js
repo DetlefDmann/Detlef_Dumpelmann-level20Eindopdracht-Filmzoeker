@@ -2,7 +2,7 @@ import { movies } from "./moviesDatabase.js";
 
 let selectedMovies = [];
 
-const eventHandler = (event) => {
+const filterHandler = (event) => {
   console.log(event.target.value);
   if (event.target.value == "nieuwste") {
     console.log("Je wilt de nieuwste films?");
@@ -22,14 +22,14 @@ const eventHandler = (event) => {
 };
 
 const addEventListeners = () => {
-  let buttons = Array.from(document.getElementsByName("select"));
-  let textInput = buttons.filter((i) => i.type == "text");
-  buttons.map((b) => b.addEventListener("click", eventHandler));
-  textInput.map((t) => t.addEventListener("input", eventHandler));
-  textInput.map((t) => t.addEventListener("click", deselector));
+  let inputElements = Array.from(document.getElementsByName("select"));
+  let textInputs = inputElements.filter((i) => i.type == "text");
+  inputElements.map((b) => b.addEventListener("click", filterHandler));
+  textInputs.map((t) => t.addEventListener("input", filterHandler));
+  textInputs.map((t) => t.addEventListener("click", uncheckRadioButtons));
 };
 
-const deselector = () =>
+const uncheckRadioButtons = () =>
   Array.from(document.getElementsByName("select"))
     .filter((i) => i.type == "radio")
     .map((r) => (r.checked = false));
@@ -41,17 +41,17 @@ addEventListeners();
 const moviePlacer = () => {
   movieClearer();
   selectedMovies.map((movie) => {
-    let lister = document.createElement("li");
-    let linker = document.createElement("a");
-    linker.setAttribute("href", `https://www.imdb.com/title/${movie.imdbID}`);
-    linker.setAttribute("class", "movie__link");
-    let temp = document.createElement("img");
-    temp.setAttribute("src", movie.Poster);
-    temp.setAttribute("id", movie.imdbID);
-    temp.setAttribute("class", "movie__poster");
-    temp.setAttribute("alt", `Poster for ${movie.Title}`);
-    linker.appendChild(temp);
-    document.getElementById("movie__field").appendChild(lister).appendChild(linker);
+    let movielist = document.createElement("li");
+    let movielink = document.createElement("a");
+    movielink.setAttribute("href", `https://www.imdb.com/title/${movie.imdbID}`);
+    movielink.setAttribute("class", "movie__link");
+    let poster = document.createElement("img");
+    poster.setAttribute("src", movie.Poster);
+    poster.setAttribute("id", movie.imdbID);
+    poster.setAttribute("class", "movie__poster");
+    poster.setAttribute("alt", `Poster for ${movie.Title}`);
+    movielink.appendChild(poster);
+    document.getElementById("movie__field").appendChild(movielist).appendChild(movielink);
   });
 };
 
